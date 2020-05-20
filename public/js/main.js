@@ -1,8 +1,14 @@
-// create the module and name it scotchApp
-var blogApp = angular.module('blogApp', []);
+(() => {
+  // create the module and name it scotchApp
+  var blogApp = angular.module('blogApp', [
+    'ngRoute',
 
-// configure our routes
-blogApp.config(function($routeProvider, $locationProvider) {
+    'loginModule',
+    'newsModule'
+  ]);
+
+  // configure our routes
+  blogApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
       // route for the home page
       .when('/', {
@@ -10,13 +16,14 @@ blogApp.config(function($routeProvider, $locationProvider) {
       })
       .when('/tin-tuc', {
         templateUrl: 'pages/news.html',
-        controller: 'NewsController'
+        controller: 'newsController'
       })
       .when('/dang-nhap', {
         templateUrl: 'pages/login.html',
-        controller: 'LoginController'
+        controller: 'loginController'
       })
       .otherwise({
         redirectTo: '/'
       });
-});
+  });
+})()

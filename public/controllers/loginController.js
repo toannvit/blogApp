@@ -1,17 +1,18 @@
-var blogApp = angular.module('blogApp', []);
-
-
-blogApp.controller('LoginController', function loginController($scope) {
-  $scope.phones = [
-    {
-      name: 'Nexus S',
-      snippet: 'Fast just got faster with Nexus S.'
-    }, {
-      name: 'Motorola XOOM™ with Wi-Fi',
-      snippet: 'The Next, Next Generation tablet.'
-    }, {
-      name: 'MOTOROLA XOOM™',
-      snippet: 'The Next, Next Generation tablet.'
+(() => {
+  angular.module('loginModule', [
+    'ngRoute'
+  ]).controller('loginController', function loginController($scope, $location) {
+    $scope.information = {
+      email: '',
+      password: '',
     }
-  ];
-});
+
+    $scope.submit = function(information) {
+      if(information.email == 'toannvit@gmail.com' && information.password === '12345') {
+        $location.path('/tin-tuc');
+      } else {
+        alert('Incorrect username/password');
+      }
+    }
+  });
+})()
