@@ -5,7 +5,7 @@ const Inert = require('@hapi/inert');
 
 const init = async () => {
     const server = Hapi.Server({
-        port: 3000,
+        port: 5000,
         host: 'localhost',
         routes: {
             files: {
